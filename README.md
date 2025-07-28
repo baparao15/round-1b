@@ -1,6 +1,3 @@
-Of course. Here is a professionally crafted `README.md` file, meticulously updated to reflect the precise logic and methodology found in your provided source code.
-
------
 
 # Persona-Driven Document Intelligence Analyzer
 
