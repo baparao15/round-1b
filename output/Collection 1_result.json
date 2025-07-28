@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "collection_name": "Collection 1",
+    "input_documents": [
+      "South of France - Cities.pdf",
+      "South of France - Cuisine.pdf",
+      "South of France - History.pdf",
+      "South of France - Restaurants and Hotels.pdf",
+      "South of France - Things to Do.pdf",
+      "South of France - Tips and Tricks.pdf",
+      "South of France - Traditions and Culture.pdf"
+    ],
+    "persona": "Travel Planner",
+    "job_to_be_done": "Plan a trip of 4 days for a group of 10 college friends.",
+    "processing_timestamp": "2025-07-28T06:09:36.755Z"
+  },
+  "extracted_sections": [
+    {
+      "document": "South of France - Tips and Tricks.pdf",
+      "page_number": 1,
+      "section_title": "Planning, and Exploring",
+      "importance_rank": 1
+    },
+    {
+      "document": "South of France - Things to Do.pdf",
+      "page_number": 11,
+      "section_title": "Bars and Lounges",
+      "importance_rank": 2
+    },
+    {
+      "document": "South of France - Things to Do.pdf",
+      "page_number": 5,
+      "section_title": "Cooking Classes",
+      "importance_rank": 3
+    },
+    {
+      "document": "South of France - Restaurants and Hotels.pdf",
+      "page_number": 1,
+      "section_title": "Document Start",
+      "importance_rank": 4
+    },
+    {
+      "document": "South of France - Cuisine.pdf",
+      "page_number": 1,
+      "section_title": "A Culinary Journey Through the South of France",
+      "importance_rank": 5
+    },
+    {
+      "document": "South of France - Things to Do.pdf",
+      "page_number": 1,
+      "section_title": "Document Start",
+      "importance_rank": 6
+    },
+    {
+      "document": "South of France - Cities.pdf",
+      "page_number": 2,
+      "section_title": "Travel Tips",
+      "importance_rank": 7
+    },
+    {
+      "document": "South of France - Things to Do.pdf",
+      "page_number": 5,
+      "section_title": "Culinary Delights",
+      "importance_rank": 8
+    },
+    {
+      "document": "South of France - Tips and Tricks.pdf",
+      "page_number": 1,
+      "section_title": "Document Start",
+      "importance_rank": 9
+    },
+    {
+      "document": "South of France - Things to Do.pdf",
+      "page_number": 6,
+      "section_title": "Festivals and Events",
+      "importance_rank": 10
+    }
+  ],
+  "sub_section_analysis": [
+    {
+      "document": "South of France - Tips and Tricks.pdf",
+      "page_number": 1,
+      "refined_text": "Planning a trip to the South of France requires thoughtful preparation to ensure a. to travel tips, catering to all seasons and various activities.. comfortable and enjoyable experience.. Whether you're traveling solo, with. This guide covers everything from packing essentials."
+    },
+    {
+      "document": "South of France - Things to Do.pdf",
+      "page_number": 11,
+      "refined_text": "• Monaco: Enjoy classic cocktails and live jazz at Le Bar Americain, located in the Hôtel. • Nice: Try creative cocktails at Le Comptoir du Marché, a trendy bar in the old town.. • Marseille: Visit Le Trolleybus, a popular bar with multiple rooms and music styles.. • Nice: Party at High Club on the Promenade des Anglais, featuring multiple dance. • Marseille: Visit R2 Rooftop, a popular nightclub with panoramic views of the city and."
+    },
+    {
+      "document": "South of France - Things to Do.pdf",
+      "page_number": 5,
+      "refined_text": "• Provence: Learn to prepare traditional dishes like ratatouille and bouillabaisse.. • Périgord: Join a truffle hunting tour followed by a cooking class.. • Marseille: Participate in a seafood cooking class to make dishes like bouillabaisse.. • Nice: Take a class to master Niçoise cuisine, including dishes like salade niçoise and. • Toulouse: Learn to cook regional specialties such as cassoulet."
+    },
+    {
+      "document": "South of France - Restaurants and Hotels.pdf",
+      "page_number": 1,
+      "refined_text": "Comprehensive Guide to Restaurants and Hotels in the South of France. luxurious experiences, this guide will help you find the perfect restaurants and hotels for your. cuisine, is a dream destination for travelers.. The South of France, known for its stunning landscapes, rich cultural heritage, and exquisite. From the glamorous beaches of the French."
+    },
+    {
+      "document": "South of France - Cuisine.pdf",
+      "page_number": 1,
+      "refined_text": "paradise for food lovers.. The South of France, known for its stunning landscapes and charming villages, is also a. take you through the different types of food, famous dishes, must-visit restaurants, renowned. fresh ingredients, and traditional recipes passed down through generations.. wine regions, and the types of wines they produce to help you plan an unforgettable culinary."
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "metadata": {
+    "collection_name": "Collection 2",
+    "input_documents": [
+      "Learn Acrobat - Create and Convert_1.pdf",
+      "Learn Acrobat - Create and Convert_2.pdf",
+      "Learn Acrobat - Edit_1.pdf",
+      "Learn Acrobat - Edit_2.pdf",
+      "Learn Acrobat - Export_1.pdf",
+      "Learn Acrobat - Export_2.pdf",
+      "Learn Acrobat - Fill and Sign.pdf",
+      "Learn Acrobat - Generative AI_1.pdf",
+      "Learn Acrobat - Generative AI_2.pdf",
+      "Learn Acrobat - Request e-signatures_1.pdf",
+      "Learn Acrobat - Request e-signatures_2.pdf",
+      "Learn Acrobat - Share_1.pdf",
+      "Learn Acrobat - Share_2.pdf",
+      "Test Your Acrobat Exporting Skills.pdf",
+      "The Ultimate PDF Sharing Checklist.pdf"
+    ],
+    "persona": "HR professional",
+    "job_to_be_done": "Create and manage fillable forms for onboarding and compliance.",
+    "processing_timestamp": "2025-07-28T06:11:43.635Z"
+  },
+  "extracted_sections": [
+    {
+      "document": "Learn Acrobat - Generative AI_1.pdf",
+      "page_number": 9,
+      "section_title": "Before You Begin",
+      "importance_rank": 1
+    },
+    {
+      "document": "The Ultimate PDF Sharing Checklist.pdf",
+      "page_number": 3,
+      "section_title": "• Follow Up",
+      "importance_rank": 2
+    },
+    {
+      "document": "Learn Acrobat - Create and Convert_1.pdf",
+      "page_number": 29,
+      "section_title": "Convert Visio files to PDF (Acrobat Pro)",
+      "importance_rank": 3
+    },
+    {
+      "document": "The Ultimate PDF Sharing Checklist.pdf",
+      "page_number": 2,
+      "section_title": "Sharing Checklist for Real Estate Professionals",
+      "importance_rank": 4
+    },
+    {
+      "document": "The Ultimate PDF Sharing Checklist.pdf",
+      "page_number": 2,
+      "section_title": "• Add Clients and Stakeholders",
+      "importance_rank": 5
+    },
+    {
+      "document": "Learn Acrobat - Request e-signatures_1.pdf",
+      "page_number": 10,
+      "section_title": "3. Add participants:",
+      "importance_rank": 6
+    },
+    {
+      "document": "Learn Acrobat - Generative AI_1.pdf",
+      "page_number": 15,
+      "section_title": "View meeting details in Acrobat",
+      "importance_rank": 7
+    },
+    {
+      "document": "Learn Acrobat - Share_1.pdf",
+      "page_number": 12,
+      "section_title": "Reviewer experience",
+      "importance_rank": 8
+    },
+    {
+      "document": "Learn Acrobat - Request e-signatures_1.pdf",
+      "page_number": 18,
+      "section_title": "are available",
+      "importance_rank": 9
+    },
+    {
+      "document": "Learn Acrobat - Request e-signatures_1.pdf",
+      "page_number": 2,
+      "section_title": "Request signatures – Add recipients",
+      "importance_rank": 10
+    }
+  ],
+  "sub_section_analysis": [
+    {
+      "document": "Learn Acrobat - Generative AI_1.pdf",
+      "page_number": 9,
+      "refined_text": "Before you begin, ensure that you adhere to the file and usage-related restrictions and login. File considerations • The language of the PDF file is English, French,."
+    },
+    {
+      "document": "The Ultimate PDF Sharing Checklist.pdf",
+      "page_number": 3,
+      "refined_text": "• Are you tracking who has accessed the document and. following up with clients for feedback or next steps?"
+    },
+    {
+      "document": "Learn Acrobat - Create and Convert_1.pdf",
+      "page_number": 29,
+      "refined_text": "PDFs created from Visio files preserve page sizes and support layers, searchable text, custom. properties, links, bookmarks, and comments, depending on the conversion settings."
+    },
+    {
+      "document": "The Ultimate PDF Sharing Checklist.pdf",
+      "page_number": 2,
+      "refined_text": "In the real estate industry, sharing documents efficiently is crucial for. closing deals and keeping clients informed.. help you manage your PDF sharing needs.. Here's a tailored checklist to."
+    },
+    {
+      "document": "The Ultimate PDF Sharing Checklist.pdf",
+      "page_number": 2,
+      "refined_text": "• Did you enter the email addresses of clients, agents, and other."
+    }
+  ]
+}
