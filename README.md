@@ -1,31 +1,38 @@
-Persona-Driven Document Intelligence Analyzer
-This project is a sophisticated document analysis engine built with Node.js. It intelligently extracts and ranks the most relevant sections from a collection of PDF documents based on a specific user persona and their "job-to-be-done." The system is designed to process multiple, independent collections in a single run and works entirely offline within a Docker container.
+Of course. Here is a professionally crafted `README.md` file, meticulously updated to reflect the precise logic and methodology found in your provided source code.
 
-Key Features
-Semantic Understanding: Uses a state-of-the-art AI model to understand the meaning of text, not just keywords.
+-----
 
-Persona-Driven: Tailors results to the specific needs and context of a defined user persona.
+# Persona-Driven Document Intelligence Analyzer
 
-Multi-Collection Processing: Analyzes multiple independent document collections in a single execution.
+This project is a sophisticated document analysis engine built with Node.js. It intelligently extracts, ranks, and summarizes the most relevant sections from a collection of PDF documents based on a specific user persona and their "job-to-be-done." The system is designed to process multiple, independent collections in a single run and works entirely offline within a Docker container.
 
-Offline-First: The entire application, including the AI model, is self-contained in a Docker image and requires no internet access to run.
+### Key Features
 
-Smart Filtering: Includes domain-specific logic to filter content based on job requirements (e.g., automatically filtering for "vegetarian" recipes).
+  * [cite\_start]**Semantic Understanding**: Uses a state-of-the-art AI model (`Xenova/all-mpnet-base-v2`) to understand the contextual meaning of text, not just keywords. [cite: 3]
+  * **Persona-Driven**: Tailors search results to the specific needs and context of a defined user persona and their goal.
+  * **Multi-Collection Processing**: Analyzes multiple, independent document collections in a single execution.
+  * [cite\_start]**100% Offline Operation**: The entire application, including the AI model, is self-contained in a Docker image and requires no internet access to run. [cite: 2]
+  * **Dynamic Query Generation**: Automatically expands a simple user request into a detailed, context-rich query to guide the AI model for more accurate results.
+  * **Intelligent Text Chunking**: Parses documents by identifying semantic headings to create logical, self-contained sections for analysis.
+  * **Automated Summarization**: For the most relevant sections, it generates concise summaries by identifying and extracting the most important sentences.
 
-Technology Stack
-Runtime: Node.js (v20 or later)
+-----
 
-NLP / AI: @xenova/transformers for running state-of-the-art models in Node.js.
+## Technology Stack
 
-AI Model: Xenova/all-mpnet-base-v2 (~420 MB), a powerful sentence-transformer model for high-accuracy semantic search.
+  * [cite\_start]**Runtime**: Node.js (v20 or later) [cite: 2]
+  * **NLP / AI**: `@xenova/transformers` for running state-of-the-art models in Node.js.
+  * [cite\_start]**AI Model**: `Xenova/all-mpnet-base-v2`, a powerful sentence-transformer model for high-accuracy semantic search, is downloaded during the build process. [cite: 3]
+  * **PDF Parsing**: `pdfjs-dist`, Mozilla's robust PDF parsing engine.
+  * **Containerization**: Docker
 
-PDF Parsing: pdfjs-dist, Mozilla's powerful and robust PDF rendering engine.
+-----
 
-Containerization: Docker
+## Input Directory Structure
 
-Input Directory Structure
 Before running the application, you must structure your input directory as follows. The root input folder should contain one or more "Collection" folders.
 
+```
 input/
 │
 ├── Collection 1/
@@ -38,49 +45,76 @@ input/
     ├── pdf/
     │   └── another_document.pdf
     └── input.json
+```
 
-input.json File Format:
-Each collection folder must contain an input.json file that specifies the persona and job for that collection.
+#### `input.json` File Format
 
+Each collection folder **must** contain an `input.json` file that specifies the persona and job for that collection.
+
+```json
 {
-  "persona": "Travel Planner",
-  "job_to_be_done": "Plan a trip of 4 days for a group of 10 college friends."
+  "persona": {
+    "role": "Travel Planner for a group of college friends"
+  },
+  "job_to_be_done": {
+    "task": "I need to plan a 4-day trip to the South of France."
+  }
 }
+```
 
-How to Run
-Make sure you have Docker installed and running on your system. All commands should be executed from the project's root directory.
+-----
 
-Step 1: Build the Docker Image
-This command builds your application and downloads the AI model into a self-contained image named persona-analyzer. You only need to run this once, or again if you modify the code.
+## How to Run
 
-'''docker build -t persona-analyzer .'''
+> **Note**: Make sure you have Docker installed and running on your system. All commands should be executed from the project's root directory.
 
-(Note: If you encounter issues with Docker's cache after changing files, you can force a complete rebuild with docker build --no-cache -t persona-analyzer .)
+### Step 1: Build the Docker Image
 
-Step 2: Run the Analysis
-This command starts the container. It will automatically find and process every collection folder in your input directory.
+This command builds your application into a self-contained image named `persona-analyzer`. During this step, the script downloads the required AI model, which will be cached inside the image. You only need to run this once, or again if you modify the code.
 
-For macOS / Linux / WSL:
-'''docker run --rm -v "$(pwd)/input:/app/input" -v "$(pwd)/output:/app/output" --network none persona-analyzer'''
+```bash
+# This builds the Docker image and tags it as 'persona-analyzer'
+docker build -t persona-analyzer .
+```
 
-For Windows PowerShell:
-'''docker run --rm -v "${PWD}/input:/app/input" -v "${PWD}/output:/app/output" --network none persona-analyzer'''
+### Step 2: Run the Analysis
 
-After the script finishes, the results for each collection will be saved as separate _result.json files in your local output folder.
+This command starts the container. It will automatically find and process every collection folder within your local `input` directory.
 
-Methodology Explained
+  * **For macOS / Linux / Windows (WSL)**:
+
+<!-- end list -->
+
+```bash
+# --rm: Automatically removes the container after it exits
+# -v: Mounts your local input/output folders into the container
+# --network none: Ensures the container runs completely offline
+docker run --rm -v "$(pwd)/input:/app/input" -v "$(pwd)/output:/app/output" --network none persona-analyzer
+```
+
+  * **For Windows (PowerShell)**:
+
+<!-- end list -->
+
+```powershell
+docker run --rm -v "${PWD}/input:/app/input" -v "${PWD}/output:/app/output" --network none persona-analyzer
+```
+
+After the script finishes, the results for each collection will be saved as separate `[collection_name]_result.json` files in your local `output` folder.
+
+-----
+
+## Methodology Explained
+
 The accuracy of this solution comes from a multi-stage approach that combines intelligent document parsing with advanced semantic analysis.
 
-Recipe-Aware Parsing: The system first uses a custom parser built on pdfjs-dist. Instead of generic heading detection, this parser is specifically designed to identify and isolate individual recipes within the documents. It splits the text into clean chunks, each containing a recipe's title and its full content (ingredients and instructions). This foundational step is critical for accurate downstream analysis.
+1.  **Intelligent Document Chunking**: The system first uses a custom parser built on `pdfjs-dist`. This parser reads each PDF and uses a set of robust heuristics to identify semantic headings (e.g., "1.1 Introduction", "Key Attractions"). The document is then split into clean, logical chunks, each containing a heading and its corresponding content. This foundational step ensures the AI analyzes well-formed, contextually relevant sections.
 
-Context-Rich Query Formulation: To get the best results from the AI, we create an "expanded query" that combines the user's persona and job_to_be_done with additional context implied by the task. For example, a request for "college friends" is expanded to prioritize "fun, social activities, nightlife, and group-friendly" options. This guides the model towards the most relevant results.
+2.  **Context-Rich Query Formulation**: To get the best results from the AI, the engine doesn't just use the raw "job-to-be-done." It creates an "expanded query" by dynamically extracting keywords from the persona and job, and combining them with domain-specific terms. This transforms a simple request into a detailed prompt that guides the model towards the most relevant information.
 
-Smart Semantic Filtering & Ranking: The core of the engine uses the all-mpnet-base-v2 model to perform semantic analysis:
+3.  **AI-Powered Relevance Ranking**: The core of the engine uses the `all-mpnet-base-v2` model to perform semantic analysis:
 
-Pre-Filtering: Before any analysis, the system performs a critical filtering step. For a job requiring a "vegetarian" menu, it automatically scans and discards any recipe chunk containing non-vegetarian keywords (e.g., 'chicken', 'pork', 'fish'). This hard rule ensures all suggestions strictly adhere to the user's constraints.
+      * **Embedding**: The expanded query and the content of each document chunk are converted into high-dimensional vectors (embeddings) that capture their semantic meaning.
+      * **Ranking**: The relevance of each chunk is calculated using **cosine similarity** between its vector and the query's vector. The results are then ranked by this score, ensuring that the sections most aligned with the user's intent appear first.
 
-Embedding: The expanded query and the content of each filtered chunk are converted into high-dimensional vectors (embeddings) that capture their semantic meaning.
-
-Ranking: The relevance of each recipe is calculated using cosine similarity between its vector and the query's vector. The results are then ranked by this score, ensuring the most relevant items appear first.
-
-Targeted Summarization: For the subsection_analysis, the system returns the full, clean recipe text from the top-ranked chunks. Because the initial parsing step was so precise, the entire content of the chunk is the "refined text" needed, providing actionable details like ingredients and instructions.
+4.  **Refined Summarization**: For the top-ranked sections, the system performs a final summarization step. Instead of returning raw text, it scores individual sentences within a chunk based on keyword relevance and position. It then selects the top-scoring sentences to construct a concise and highly relevant summary, which is perfect for quick insights.
